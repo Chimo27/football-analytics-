@@ -3,3 +3,4 @@ duckdb
 dbt-duckdb
 python-dotenv
 pytest
+streamlit
