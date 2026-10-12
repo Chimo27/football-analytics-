@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: dim_team
+    columns:
+      - name: team_id
+        tests: [unique, not_null]
+
+  - name: dim_competition
+    columns:
+      - name: competition_code
+        tests: [unique, not_null]
+
+  - name: fct_match
+    columns:
+      - name: match_id
+        tests: [unique, not_null]
+      - name: home_team_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_team')
+                field: team_id
+      - name: away_team_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_team')
+                field: team_id
+
+  - name: fct_team_match
+    columns:
+      - name: team_match_id
+        tests: [unique, not_null]
+      - name: result
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['W', 'D', 'L']
