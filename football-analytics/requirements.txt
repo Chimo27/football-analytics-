@@ -1,5 +1,0 @@
-requests
-duckdb
-dbt-duckdb
-python-dotenv
-pytest
