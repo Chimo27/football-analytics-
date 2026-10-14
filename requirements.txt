@@ -4,3 +4,4 @@ dbt-duckdb
 python-dotenv
 pytest
 streamlit
+plotly
